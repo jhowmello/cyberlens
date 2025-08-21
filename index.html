@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberLens - App Mobile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/script.js" defer></script>
+   
+</head>
+<body>
+    <div class="mobile-frame">
+        <div class="status-bar">
+            <div class="time">14:25</div>
+            <div class="icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </div>
+        
+        <div class="notch"></div>
+        
+        <!-- Login Screen -->
+        <div class="screen active" id="login-screen">
+            <div class="login-container">
+                <div class="login-box">
+                    <div class="logo">
+                        <img src="/assets/img/logo monitor wfi.jpg" alt="Logo" style="width:160px; height:auto; ">
+                        <!-- <h1>Cyber<span>Lens</span></h1> -->
+                        <!-- <p>Monitoramento inteligente de rede</p> -->
+                    </div>
+                    
+                    <form>
+                        <div class="input-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" placeholder="seu@email.com">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="password">Senha</label>
+                            <input type="password" id="password" placeholder="Sua senha">
+                        </div>
+                        
+                        <button type="button" class="login-button" onclick="showScreen('dashboard-screen')">Entrar</button>
+                    </form>
+                    
+                    <div class="footer-links">
+                        <a href="#">Esqueci minha senha</a>
+                        <a href="#">Criar conta</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dashboard Screen -->
+        <div class="screen" id="dashboard-screen">
+            <div class="header">
+                <h1>Dashboard</h1>
+                <div class="header-actions">
+                    <i class="fas fa-bell header-icon"></i>
+                    <i class="fas fa-user-circle header-icon"></i>
+                </div>
+            </div>
+            
+            <div class="content">
+                <h2 class="section-title">Métricas em Tempo Real <span class="view-all">Ao vivo</span></h2>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">24</div>
+                        <div class="metric-label">Dispositivos</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-value">98%</div>
+                        <div class="metric-label">Uptime</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-value">256 Mb/s</div>
+                        <div class="metric-label">Download</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-value">128 Mb/s</div>
+                        <div class="metric-label">Upload</div>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">Tráfego da Rede</h2>
+                
+                <div class="chart-container">
+                    <div class="chart-placeholder">
+                        Gráfico de Tráfego em Tempo Real
+                    </div>
+                </div>
+                
+                <h2 class="section-title">Alertas de Segurança</h2>
+                
+                <div class="alert-notification">
+                    <div class="alert-icon"><i class="fas fa-exclamation"></i></div>
+                    <div class="alert-content">
+                        <h3>Dispositivo não identificado</h3>
+                        <p>Um novo dispositivo conectou à rede há 5 minutos</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bottom-nav">
+                <a href="#" class="nav-item active" onclick="showScreen('dashboard-screen')">
+                    <div class="nav-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="nav-label">Dashboard</div>
+                </a>
+                
+                <a href="#" class="nav-item" onclick="showScreen('devices-screen')">
+                    <div class="nav-icon"><i class="fas fa-laptop"></i></div>
+                    <div class="nav-label">Dispositivos</div>
+                </a>
+                
+                <a href="#" class="nav-item" onclick="showScreen('performance-screen')">
+                    <div class="nav-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="nav-label">Desempenho</div>
+                </a>
+                
+                <a href="#" class="nav-item" onclick="showScreen('history-screen')">
+                    <div class="nav-icon"><i class="fas fa-history"></i></div>
+                    <div class="nav-label">Histórico</div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Devices Screen -->
+        <div class="screen" id="devices-screen">
+            <div class="header">
+                <h1>Dispositivos Conectados</h1>
+                <div class="header-actions">
+                    <i class="fas fa-sort-amount-down header-icon"></i>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="search-container">
+                    <div class="search-box">
+                        <span><i class="fas fa-search"></i></span>
+                        <input type="text" placeholder="Buscar dispositivos...">
+                    </div>
+                </div>
+                
+                <div class="category-title">Dispositivos Conhecidos (18)</div>
+                
+                <div class="device-card">
+                    <div class="device-icon"><i class="fas fa-laptop"></i></div>
+                    <div class="device-info">
+                        <div class="device-name">Notebook - João</div>
+                        <div class="device-details">
+                            <span>192.168.1.101</span>
+                            <span>Conectado há 2h</span>
+                        </div>
+                    </div>
+                    <div class="device-status"></div>
+                </div>
+                
+                <div class="device-card">
+                    <div class="device-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="device-info">
+                        <div class="device-name">iPhone - Maria</div>
+                        <div class="device-details">
+                            <span>192.168.1.102</span>
+                            <span>Conectado há 4h</span>
+                        </div>
+                    </div>
+                    <div class="device-status"></div>
+                </div>
+                
+                <div class="device-card">
+                    <div class="device-icon"><i class="fas fa-tv"></i></div>
+                    <div class="device-info">
+                        <div class="device-name">Smart TV - Sala</div>
+                        <div class="device-details">
+                            <span>192.168.1.105</span>
+                            <span>Conectado há 12h</span>
+                        </div>
+                    </div>
+                    <div class="device-status"></div>
+                </div>
+                
+                <div class="category-title">Dispositivos Não Identificados (2)</div>
+                
+                <div class="device-card">
+                    <div class="device-icon"><i class="fas fa-question"></i></div>
+                    <div class="device-info">
+                        <div class="device-name">Dispositivo Desconhecido</div>
+                        <div class="device-details">
+                            <span>192.168.1.110</span>
+                            <span>Conectado há 5min</span>
+                        </div>
+                    </div>
+                    <div class="device-status warning"></div>
+                </div>
+                
+                <div class="category-title">Dispositivos Inativos (4)</div>
+                
+                <div class="device-card">
+                    <div class="device-icon"><i class="fas fa-tablet-alt"></i></div>
+                    <div class="device-info">
+                        <div class="device-name">iPad - João</div>
+                        <div class="device-details">
+                            <span>192.168.1.103</span>
+                            <span>Desconectado há 2d</span>
+                        </div>
+                    </div>
+                    <div class="device-status offline"></div>
+                </div>
+            </div>
+            
+            <div class="floating-button"><i class="fas fa-plus"></i></div>
+            
+            <div class="bottom-nav">
+                <a href="#" class="nav-item" onclick="showScreen('dashboard-screen')">
+                    <div class="nav-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="nav-label">Dashboard</div>
+                </a>
+                
+                <a href="#" class="nav-item active" onclick="showScreen('devices-screen')">
+                    <div class="nav-icon"><i class="fas fa-laptop"></i></div>
+                    <div class="nav-label">Dispositivos</div>
+                </a>
+                
+                <a href="#" class="nav-item" onclick="showScreen('performance-screen')">
+                    <div class="nav-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="nav-label">Desempenho</div>
+                </a>
+                
+                <a href="#" class="nav-item" onclick="showScreen('history-screen')">
+                    <div class="nav-icon"><i class="fas fa-history"></i></div>
+                    <div class="nav-label">Histórico</div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Performance Screen -->
+        <div class="screen" id="performance-screen">
+            <div class="header">
+                <h1>Análise de Desempenho</h1>
+                <div class="header-actions">
+                    <i class="fas fa-info-circle header-icon"></i>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="time-selector">
+                    <div class="time-option">Ao vivo</div>
+                    <div class="time-option">Hoje</div>
+                    <div class="time-option active">Esta semana</div>
+                    <div class="time-option">Este mês</div>
+                </div>
+                
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <div class="chart-title">Velocidade de Download</div>
+                        <div class="view-all">Detalhes</div>
+                    </div>
+                    <div class="chart-placeholder">
+                        Gráfico de Velocidade de Download
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <div class="chart-title">Velocidade de Upload</div>
+                        <div class="view-all">Detalhes</div>
+                    </div>
+                    <div class="chart-placeholder">
+                        Gráfico de Velocidade de Upload
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-title">Latência Média</div>
+                        <div class="stat-value">24 ms</div>
+                        <div class="stat-comparison"><i class="fas fa-arrow-down"></i> 12% desde a semana passada</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-title">Perda de Pacotes</div>
+                        <div class="stat-value">0.2%</div>
+                        <div class="stat-comparison"><i class="fas fa-arrow-down"></i> 0.1% desde a semana passada</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-title">Tempo de Atividade</div>
+                        <div class="stat-value">99.8%</div>
+                        <div class="stat-comparison"><i class="fas fa-minus"></i> igual à semana passada</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-title">Pico de Conexões</div>
+                        <div class="stat-value">18</div>
+                        <div class="stat-comparison"><i class="fas fa-arrow-up"></i> 3 desde a semana passada</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bottom-nav">
+                <a href="#" class="nav-item" onclick="showScreen('dashboard-screen')">
+                    <div class="nav-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="nav-label">Dashboard</div>
+                </a>
+                
+                <a href="#" class="nav-item" onclick="showScreen('devices-screen')">
+                    <div class="nav-icon"><i class="fas fa-laptop"></i></div>
+                    <div class="nav-label">Dispositivos</div>
+                </a>
+                
+                <a href="#" class="nav-item active" onclick="showScreen('performance-screen')">
+                    <div class="nav-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="nav-label">Desempenho</div>
+                </a>
+                
+                <a href="#" class="nav-item" onclick="showScreen('history-screen')">
+                    <div class="nav-icon"><i class="fas fa-history"></i></div>
+                    <div class="nav-label">Histórico</div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- History Screen -->
+        <div class="screen" id="history-screen">
+            <div class="header">
+                <h1>Histórico de Conexões</h1>
+                <div class="header-actions">
+                    <i class="fas fa-filter header-icon"></i>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="time-selector">
+                    <div class="time-option">Hoje</div>
+                    <div class="time-option active">Esta semana</div>
+                    <div class="time-option">Este mês</div>
+                    <div class="time-option">3 meses</div>
+                </div>
+                
+                <div class="history-item">
+                    <div class="history-icon"><i class="fas fa-laptop"></i></div>
+                    <div class="history-info">
+                        <div class="history-title">Notebook - João conectado</div>
+                        <div class="history-details">IP: 192.168.1.101 • 2 horas atrás</div>
+                    </div>
+                    <div class="history-time">14:32</div>
+                </div>
+                
+                <div class="history-item">
+                    <div class="history-icon"><i class="fas fa-plug"></i></div>
+                    <div class="history-info">
+                        <div class="history-title">Conexão interrompida</div>
+                        <div class="history-details">Queda de sinal • 3 horas atrás</div>
+                    </div>
+                    <div class="history-time">13:45</div>
+                </div>
+                
+                <div class="history-item">
+                    <div class="history-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="history-info">
+                        <div class="history-title">iPhone - Maria conectado</div>
+                        <div class="history-details">IP: 192.168.1.102 • 4 horas atrás</div>
+                    </div>
+                    <div class="history-time">12:30</div>
+                </div>
+                
+                <div class="history-item">
+                    <div class="history-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="history-info">
+                        <div class="history-title">Firewall atualizado</div>
+                        <div class="history-details">Versão 2.4.1 • 6 horas atrás</div>
+                    </div>
+                    <div class="history-time">10:15</div>
+                </div>
+                
+                <div class="history-item">
+                    <div class="history-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="history-info">
+                        <div class="history-title">Pico de tráfego</div>
+                        <div class="history-details">320 Mb/s • 12 horas atrás</div>
+                    </div>
+                    <div class="history-time">08:20</div>
+                </div>
+            </div>
+            
+            <div class="bottom-nav">
+                <a href="#" class="nav-item" onclick="showScreen('dashboard-screen')">
+                    <div class="nav-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="nav-label">Dashboard</div>
+                </a>
+                
+                <a href="#" class="nav-item" onclick="showScreen('devices-screen')">
+                    <div class="nav-icon"><i class="fas fa-laptop"></i></div>
+                    <div class="nav-label">Dispositivos</div>
+                </a>
+                
+                <a href="#" class="nav-item" onclick="showScreen('performance-screen')">
+                    <div class="nav-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="nav-label">Desempenho</div>
+                </a>
+                
+                <a href="#" class="nav-item active" onclick="showScreen('history-screen')">
+                    <div class="nav-icon"><i class="fas fa-history"></i></div>
+                    <div class="nav-label">Histórico</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
